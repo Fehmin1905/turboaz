@@ -44,6 +44,11 @@ namespace TURBOAZ_PROJECT
 
         private void FrmHome_Load(object sender, EventArgs e)
         {
+
+
+
+
+
             commonMethods.SetBrandData(lkpEditBrand);
             commonMethods.SetGeneralInfo(lkpEditCurrency, "3");
             commonMethods.SetGeneralInfo(lkpEditCity, "6");
@@ -64,7 +69,7 @@ namespace TURBOAZ_PROJECT
         }
         private void GetCars()
         {
-            string query = $@"SELECT
+            string query = $@"SELECT 
                     ADS.[ID]
                     ,ADS.[PRICE]
                     ,BRD.BRAND_NAME+ ' '+MDL.MODEL_NAME CAR_FULL_NAME
@@ -78,21 +83,23 @@ namespace TURBOAZ_PROJECT
                     JOIN CAR_BRANDS BRD ON MDL.BRAND_ID=BRD.ID
                     JOIN GENERAL_INFO GN ON GN.ID=ADS.CITY_ID
                     JOIN GENERAL_INFO GN1 ON GN1.ID=ADS.MOTOR_VOLUME
-                    WHERE CURRENCY_ID={lkpEditCurrency.EditValue} AND ADS.CREDIT_HAVE={chckEditCredit.EditValue} AND ADS.BARTER={chckEditBarter.EditValue}";
+                    WHERE CURRENCY_ID={lkpEditCurrency.EditValue} ";
 
-            if (lkpEditBrand.EditValue!=null)
+            //AND ADS.CREDIT_HAVE={chckEditCredit.EditValue} AND ADS.BARTER={chckEditBarter.EditValue}
+            if (lkpEditBrand.EditValue!=null && lkpEditBrand.Text.Trim()!="Bütün markalar")
             {
                 query = query + $" AND MDL.BRAND_ID={lkpEditBrand.EditValue}";
             }
+            
             if (lkpEditModel.EditValue!=null)
             {
                 query = query + $" AND ADS.[MODEL_ID]={lkpEditModel.EditValue}";
             }
-            if (txtMinPrice.EditValue!=null)
+            if (txtMinPrice.EditValue!=null && txtMinPrice.Text!="")
             {
                 query = query + $" AND ADS.[PRICE]>={txtMinPrice.EditValue}";
             }
-            if (txtMaxPrice!=null)
+            if (txtMaxPrice.EditValue!=null && txtMaxPrice.Text != "")
             {
                 query = query + $" AND ADS.[PRICE] <={txtMaxPrice.EditValue}";
             }

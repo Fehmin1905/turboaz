@@ -200,7 +200,7 @@ namespace TURBOAZ_PROJECT
             // 
             // txtMaxPrice
             // 
-            this.txtMaxPrice.EditValue = 1000000;
+            this.txtMaxPrice.EditValue = "";
             this.txtMaxPrice.Location = new System.Drawing.Point(367, 11);
             this.txtMaxPrice.Name = "txtMaxPrice";
             this.txtMaxPrice.Size = new System.Drawing.Size(62, 20);
@@ -208,7 +208,7 @@ namespace TURBOAZ_PROJECT
             // 
             // txtMinPrice
             // 
-            this.txtMinPrice.EditValue = 100;
+            this.txtMinPrice.EditValue = "";
             this.txtMinPrice.Location = new System.Drawing.Point(293, 11);
             this.txtMinPrice.Name = "txtMinPrice";
             this.txtMinPrice.Size = new System.Drawing.Size(68, 20);

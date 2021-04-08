@@ -133,8 +133,8 @@ namespace TURBOAZ_PROJECT
         private void InsertAllInfo()
         {
             SqlTransaction sqlTransaction = null;
-            try
-            {
+            //try
+            //{
                 SqlConnection sqlConnection = new SqlConnection(SqlUtils.conString);
                 sqlConnection.Open();
                 sqlTransaction = sqlConnection.BeginTransaction();
@@ -146,12 +146,12 @@ namespace TURBOAZ_PROJECT
                 sqlConnection.Close();
                 MessageBox.Show("Məlumat yadda saxlanıldı");
                 this.Close();
-            }
-            catch (Exception ex)
-            {
+            //}
+            //catch (Exception ex)
+            //{
                 //sqlTransaction.Rollback();
-                MessageBox.Show("Xeta bas verdi");
-            }
+              //  MessageBox.Show("Xeta bas verdi");
+            //}
             
             
         }
@@ -259,7 +259,7 @@ namespace TURBOAZ_PROJECT
                 sqlCommand.Parameters.Add("YEAR", SqlDbType.Int).Value = lkpEditYear.EditValue;
                 sqlCommand.Parameters.Add("MOTOR_VOLUME", SqlDbType.Int).Value = lkpEditMotorVolume.EditValue;
                 sqlCommand.Parameters.Add("MOTOR_POWER", SqlDbType.Int).Value = nmrcUpDownMotorPower.Value;
-                sqlCommand.Parameters.Add("NOTE", SqlDbType.NVarChar).Value = mmEditAdditionalInfo.EditValue;
+                sqlCommand.Parameters.Add("NOTE", SqlDbType.NVarChar).Value = mmEditAdditionalInfo.Text;
                 sqlCommand.Parameters.Add("ALLOW_WHEELS", SqlDbType.Bit).Value = chckEditYungulLehimliDIsk.Checked;
                 sqlCommand.Parameters.Add("CENTRAL_CLOSURE", SqlDbType.Bit).Value = chckEditMerkeziQapanma.Checked;
                 sqlCommand.Parameters.Add("LEATHER_SALON", SqlDbType.Bit).Value = chckEditDeriSalon.Checked;
