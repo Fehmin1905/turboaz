@@ -14,14 +14,18 @@ namespace TURBOAZ_PROJECT.Classes
         public DataTable GetBrands()
         {
             
-            String query = "SELECT ID,BRAND_NAME FROM CAR_BRANDS;";
+            String query = @"select *from CAR_BRANDS where ID=72 
+                            UNION ALL
+                            select* from CAR_BRANDS where ID != 72 ";
             return sqlUtils.GetDataWithAdapter(query);
         }
 
         public DataTable GetModels(String brandId)
         {
             
-            String query = $"SELECT ID,MODEL_NAME FROM CAR_MODELS WHERE BRAND_ID={brandId}";
+            String query = $@"select *from CAR_MODELS where ID=-1
+                                UNION ALL
+                                select* from CAR_MODELS where ID != -1 AND BRAND_ID={brandId}";
             return sqlUtils.GetDataWithAdapter(query);
         }
         public DataTable GetGeneralInfo(string typeId)

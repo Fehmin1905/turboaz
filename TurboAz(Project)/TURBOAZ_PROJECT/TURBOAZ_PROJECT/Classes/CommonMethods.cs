@@ -33,12 +33,14 @@ namespace TURBOAZ_PROJECT.Classes
         {
 
             lkpEditBrand.Properties.DataSource = classInfoAdapter.GetBrands();
+            lkpEditBrand.EditValue = 72;
             lkpEditBrand.Properties.DisplayMember = "BRAND_NAME";
             lkpEditBrand.Properties.ValueMember = "ID";
         }
         public void SetModelData(LookUpEdit lkpEditModel,string brandID)
         {
             lkpEditModel.Properties.DataSource = classInfoAdapter.GetModels(brandID);
+            lkpEditModel.EditValue = -1;
             lkpEditModel.Properties.DisplayMember = "MODEL_NAME";
             lkpEditModel.Properties.ValueMember = "ID";
         }

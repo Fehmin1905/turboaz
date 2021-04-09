@@ -40,6 +40,7 @@ namespace TURBOAZ_PROJECT
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.pnlControlHome = new DevExpress.XtraEditors.PanelControl();
+            this.btnYenile = new DevExpress.XtraEditors.SimpleButton();
             this.lkpEditCity = new DevExpress.XtraEditors.LookUpEdit();
             this.txtMaxPrice = new DevExpress.XtraEditors.TextEdit();
             this.txtMinPrice = new DevExpress.XtraEditors.TextEdit();
@@ -165,6 +166,7 @@ namespace TURBOAZ_PROJECT
             // 
             // pnlControlHome
             // 
+            this.pnlControlHome.Controls.Add(this.btnYenile);
             this.pnlControlHome.Controls.Add(this.lkpEditCity);
             this.pnlControlHome.Controls.Add(this.txtMaxPrice);
             this.pnlControlHome.Controls.Add(this.txtMinPrice);
@@ -184,6 +186,15 @@ namespace TURBOAZ_PROJECT
             this.pnlControlHome.Name = "pnlControlHome";
             this.pnlControlHome.Size = new System.Drawing.Size(751, 100);
             this.pnlControlHome.TabIndex = 1;
+            // 
+            // btnYenile
+            // 
+            this.btnYenile.Location = new System.Drawing.Point(450, 44);
+            this.btnYenile.Name = "btnYenile";
+            this.btnYenile.Size = new System.Drawing.Size(79, 21);
+            this.btnYenile.TabIndex = 24;
+            this.btnYenile.Text = "Yenilə";
+            this.btnYenile.Click += new System.EventHandler(this.btnYenile_Click);
             // 
             // lkpEditCity
             // 
@@ -257,7 +268,7 @@ namespace TURBOAZ_PROJECT
             this.lkpEditModel.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MODEL_NAME", "MODEL")});
-            this.lkpEditModel.Properties.NullText = "Bütün modellər";
+            this.lkpEditModel.Properties.NullText = "";
             this.lkpEditModel.Size = new System.Drawing.Size(100, 20);
             this.lkpEditModel.TabIndex = 15;
             // 
@@ -270,7 +281,7 @@ namespace TURBOAZ_PROJECT
             this.lkpEditBrand.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "ID", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BRAND_NAME", "MARKA")});
-            this.lkpEditBrand.Properties.NullText = "Bütün markalar";
+            this.lkpEditBrand.Properties.NullText = "";
             this.lkpEditBrand.Size = new System.Drawing.Size(100, 20);
             this.lkpEditBrand.TabIndex = 14;
             this.lkpEditBrand.EditValueChanged += new System.EventHandler(this.lkpEditBrand_EditValueChanged);
@@ -399,6 +410,7 @@ namespace TURBOAZ_PROJECT
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
+        private DevExpress.XtraEditors.SimpleButton btnYenile;
     }
 }
 

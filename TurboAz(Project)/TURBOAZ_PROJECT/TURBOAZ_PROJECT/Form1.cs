@@ -44,7 +44,7 @@ namespace TURBOAZ_PROJECT
 
         private void FrmHome_Load(object sender, EventArgs e)
         {
-
+            
 
 
 
@@ -86,12 +86,12 @@ namespace TURBOAZ_PROJECT
                     WHERE CURRENCY_ID={lkpEditCurrency.EditValue} ";
 
             //AND ADS.CREDIT_HAVE={chckEditCredit.EditValue} AND ADS.BARTER={chckEditBarter.EditValue}
-            if (lkpEditBrand.EditValue!=null && lkpEditBrand.Text.Trim()!="Bütün markalar")
+            if (lkpEditBrand.EditValue!=null && (int)lkpEditBrand.EditValue!=72)
             {
                 query = query + $" AND MDL.BRAND_ID={lkpEditBrand.EditValue}";
             }
             
-            if (lkpEditModel.EditValue!=null)
+            if (lkpEditModel.EditValue!=null &&(int)lkpEditModel.EditValue!=-1)
             {
                 query = query + $" AND ADS.[MODEL_ID]={lkpEditModel.EditValue}";
             }
@@ -117,6 +117,11 @@ namespace TURBOAZ_PROJECT
             }
             DataTable dtTableCars = SqlUtils.GetInstance().GetDataWithAdapter(query);
             grdControlHome.DataSource = dtTableCars;
+        }
+
+        private void btnYenile_Click(object sender, EventArgs e)
+        {
+            lkpEditBrand.EditValue = "Bütün markalar";
         }
     }
 }
